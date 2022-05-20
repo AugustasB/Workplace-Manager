@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -29,9 +30,11 @@ public class Team {
 	private Integer id;
 	
 	@Column
+	@NotBlank
 	private String manager;
 	
 	@Column
+	@NotBlank
 	private String teamName;
 	
 	@OneToMany(mappedBy = "team", fetch = FetchType.EAGER, targetEntity = Employee.class)

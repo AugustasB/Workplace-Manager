@@ -17,4 +17,24 @@ public class RoleService {
 	public List<Role> getRoles(){
 		return rr.findAll();
 	}
+	
+	public Role saveRole(Role role) {
+		return rr.save(role);
+	}
+	
+	public Role getRole(Integer id) {
+		return rr.findById(id).orElse(null);
+	}
+	
+	public Role updateRole(Role r) {
+		Role old = this.getRole(r.getId());
+		old.setRoleName(r.getRoleName());
+		rr.save(old);
+		return old;
+	}
+	
+	public void deleteRole(Integer id) {
+		rr.deleteById(id);
+	}
+	
 }

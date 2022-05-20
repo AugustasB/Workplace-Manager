@@ -52,7 +52,6 @@ public class EmployeeController {
 	@CrossOrigin
 	@PostMapping("/")
 	public Employee add(@RequestBody Employee e) {
-		System.out.println(e);
 		return es.saveEmployee(e);
 	}
 	

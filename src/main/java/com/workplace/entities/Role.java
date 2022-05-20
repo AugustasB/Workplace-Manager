@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -31,6 +32,7 @@ public class Role implements Serializable{
 	private Integer id;
 	
 	@Column
+	@NotBlank
 	private String roleName;
 	
 	@OneToMany(mappedBy = "role", fetch = FetchType.EAGER, targetEntity = Employee.class)

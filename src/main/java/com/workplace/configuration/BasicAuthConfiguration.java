@@ -36,7 +36,7 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter{
 		
 		http.cors()
 		.and()
-			.authorizeRequests().antMatchers("/**").hasAnyAuthority("admin")
+			.authorizeRequests().antMatchers("/**").hasAuthority("admin")
 			.anyRequest().authenticated()
 		.and()
 			.httpBasic()

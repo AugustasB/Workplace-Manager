@@ -17,4 +17,24 @@ public class TeamService {
 	public List<Team> getTeams(){
 		return tr.findAll();
 	}
+	
+	public Team saveTeam(Team team) {
+		return tr.save(team);
+	}
+	
+	public Team getTeam(Integer id) {
+		return tr.findById(id).orElse(null);
+	}
+	
+	public Team updateTeam(Team t) {
+		Team old = this.getTeam(t.getId());
+		old.setTeamName(t.getTeamName());
+		old.setManager(t.getManager());
+		tr.save(old);
+		return old;
+	}
+	
+	public void deleteTeam(Integer id) {
+		tr.deleteById(id);
+	}
 }

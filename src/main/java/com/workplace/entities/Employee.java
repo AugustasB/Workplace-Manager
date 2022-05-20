@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -28,15 +31,21 @@ public class Employee implements Serializable{
 	private Integer id;
 	
 	@Column
+	@NotBlank
+	@Size(min = 2, max = 12)
 	private String firstName;
 	
 	@Column
+	@NotBlank
+	@Size(min = 2, max = 12)
 	private String lastName;
 	
-	@Column
+	@Column(unique = true)
+	@Email
 	private String email;
 	
 	@Column
+	@NotBlank
 	private String password;
 	
 	@ManyToOne(targetEntity = Role.class)
