@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Role List
+            <div class="float-end" >
+                <button type="button" class="btn btn-success" routerLink="/roles/new">Add new Role</button>
+              </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Role Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let role of rolesList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{role.roleName}}</td>
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/roles/update',role.id]">Edit</a>
+                            <button type="button" class="btn btn-danger" (click)="delete(role.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

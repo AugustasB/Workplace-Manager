@@ -1,0 +1,18 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Update {{roleName}}
+        </div>
+        <div class="card-body">
+            <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+                <div class="mb-3">
+                    <label for="" class="form-label">Role Name</label>
+                    <input type="text" class="form-control" [(ngModel)] = "roleName" name = "roleName" required>
+                </div>
+
+                <button class="btn btn-success" [disabled]="!f.valid">Update</button>
+                <a class="btn btn-info float-end" routerLink="/roles">Return</a>
+            </form>
+        </div>
+    </div>
+</div>

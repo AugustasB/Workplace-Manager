@@ -1,0 +1,35 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Team List
+            <div class="float-end" >
+                <button type="button" class="btn btn-success" routerLink="/teams/new">Add new Team</button>
+              </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Team name</th>
+                        <th>Manager</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let team of teamList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{team.teamName}}</td>
+                        <td>{{team.manager}}</td>
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/teams/update',team.id]">Edit</a>
+                            <button type="button" class="btn btn-danger" (click)="delete(team.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

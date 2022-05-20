@@ -1,0 +1,16 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Add new Role
+        </div>
+        <div class="card-body">
+            <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+                <div class="mb-3">
+                    <label for="" class="form-label">Role Name</label>
+                    <input type="text" class="form-control" [(ngModel)] = "roleName" name = "roleName" required>
+                </div>
+                <button class="btn btn-success" type="submit" [disabled]="!f.valid">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Add new Employee
+        </div>
+        <div class="card-body">
+            <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+                <div class="mb-3">
+                    <label for="" class="form-label">First Name</label>
+                    <input type="text" class="form-control" [(ngModel)] = "firstName" name = "firstName" required minlength="2" maxlength="12" #firstNameLR="ngModel">
+                    <span *ngIf="!firstNameLR.valid && firstNameLR.touched">First name has to be between 2 and 12 symbols - {{firstName}}</span> 
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" [(ngModel)] = "lastName" name = "lastName" required minlength="2" maxlength="12" #lastNameLR="ngModel">
+                    <span *ngIf="!lastNameLR.valid && lastNameLR.touched">Last name has to be between 2 and 12 symbols - {{lastName}}</span> 
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Email</label>
+                    <input type="text" class="form-control" [(ngModel)] = "email" name = "email" required email #emailLR="ngModel" (keyup)="onEmailUpdate()" [ngClass]="{'error':!isEmailValid}">
+                    <span *ngIf="!emailLR.valid && emailLR.touched">Email required to follow email format ( name@mail.com ) - {{email}}</span> 
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Role</label>
+                    <select class="form-select" [(ngModel)]="role" name = "role">
+                        <option *ngFor="let role of roleList" [ngValue]="role.id">{{role.roleName}}</option>
+                      </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Team</label>
+                    <select class="form-select" [(ngModel)]="team" name = "team">
+                        <option *ngFor="let team of teamList" [ngValue]="team.id">{{team.teamName}}</option>
+                      </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" class="form-control" [(ngModel)] = "password" name = "password" required>
+                </div>
+                <button class="btn btn-success" type="submit" [disabled]="!f.valid || !isEmailValid" >Add</button>
+            </form>
+        </div>
+    </div>
+</div>

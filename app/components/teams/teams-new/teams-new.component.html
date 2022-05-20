@@ -1,0 +1,22 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Add new Team
+        </div>
+        <div class="card-body">
+            <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+                <div class="mb-3">
+                    <label for="" class="form-label">Team Name</label>
+                    <input type="text" class="form-control" [(ngModel)] = "teamName" name = "teamName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Manager</label>
+                    <select class="form-select" [(ngModel)]="manager" name = "manager">
+                        <option *ngFor="let employee of employeesList" [ngValue]="employee.firstName + ' ' + employee.lastName">{{employee.firstName}} {{employee.lastName}}</option>
+                      </select>
+                </div>
+                <button class="btn btn-success" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

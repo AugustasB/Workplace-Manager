@@ -1,0 +1,41 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Employee List
+            <div class="float-end" >
+                <button type="button" class="btn btn-success" routerLink="/new">Add new Employee</button>
+              </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Team</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let employee of employeesList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{employee.firstName}}</td>
+                        <td>{{employee.lastName}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.role.roleName}}</td>
+                        <td>{{employee.team.teamName}}</td>
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/update',employee.id]">Edit</a>
+                            <button type="button" class="btn btn-danger" (click)="delete(employee.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
